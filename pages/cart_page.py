@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class CartPage:
     
@@ -16,7 +18,10 @@ class CartPage:
         self.driver.find_element(*self.checkout_button).click()
         
     def remove_backpack_from_cart(self):
-        self.driver.find_element(*self.remove_button).click()
-        
+        remove_button = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.remove_button)
+        )
+        remove_button.click()
+
     def get_cart_items_count(self):
         return len(self.driver.find_elements(*self.cart_item))
