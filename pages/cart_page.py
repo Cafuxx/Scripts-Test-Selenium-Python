@@ -6,14 +6,17 @@ class CartPage:
         self.driver = driver
         
     cart_item = (By.CLASS_NAME, "inventory_item_name")
+    remove_button = (By.ID, "remove-sauce-labs-backpack")
+    checkout_button = (By.ID, "checkout")
     
-    def get_cart_item_name(self):
+    def get_first_item_name(self):
         return self.driver.find_element(*self.cart_item).text
-    
-    def remove_item_from_cart(self):
-        remove_button = (By.ID, "remove-sauce-labs-backpack")
-        self.driver.find_element(*remove_button).click()
         
     def click_checkout(self):
-        checkout_button = (By.ID, "checkout")
-        self.driver.find_element(*checkout_button).click()
+        self.driver.find_element(*self.checkout_button).click()
+        
+    def remove_backpack_from_cart(self):
+        self.driver.find_element(*self.remove_button).click()
+        
+    def get_cart_items_count(self):
+        return len(self.driver.find_elements(*self.cart_item))

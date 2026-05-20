@@ -1,7 +1,8 @@
 from pages.login_page import LoginPage
 from pages.inventory_page import InventoryPage
+import pytest
 
-
+@pytest.mark.regression
 def test_order_products_by_price(driver):
 
     login_page = LoginPage(driver)
