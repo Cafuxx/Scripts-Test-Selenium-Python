@@ -29,7 +29,7 @@ https://www.saucedemo.com/
 Clonar repositorio:
 
 ```bash
-git clone https://github.com/TU_USUARIO/selenium-python-tests.git
+git clone https://github.com/Cafuxx/selenium-python-tests.git
 ```
 
 Instalar dependencias:
